@@ -53,7 +53,7 @@ flutter run
 5. Persistencia local
 
 
-###Projeto feito como teste técnico
+### Projeto feito como teste técnico
 Desenvolvido por Maryangela S. Soares da Silva
 
 
