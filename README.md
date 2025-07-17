@@ -41,16 +41,16 @@ flutter pub get
 flutter run
 
 ## Tecnologias utilizadas
-Flutter
-Dart
-SQFlite
+- Flutter
+- Dart
+- SQFlite
 
 ### Requisitos Atendidos
-Listagem de Itens
-Carrinho de compras com cálculo de desconto
-Validações e mensagens de erro
-Pagamento ficticio com nome do cliente
-Persistencia local
+1. Listagem de Itens
+2. Carrinho de compras com cálculo de desconto
+3. Validações e mensagens de erro
+4. Pagamento ficticio com nome do cliente
+5. Persistencia local
 
 
 ###Projeto feito como teste técnico
