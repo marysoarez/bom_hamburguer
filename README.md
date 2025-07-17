@@ -38,7 +38,6 @@ cd bom_hamburguer
 flutter pub get
 
 4. Rode o app:
-```bash
 flutter run
 
 ## Tecnologias utilizadas
