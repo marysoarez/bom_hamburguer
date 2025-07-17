@@ -11,16 +11,28 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
   @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  late final OrderViewModel _orderViewModel;
+
+  @override
+  void initState() {
+    super.initState();
+    _orderViewModel = OrderViewModel();
+    _orderViewModel.loadCart();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-
-      create: (_) => OrderViewModel(),
+    return ChangeNotifierProvider<OrderViewModel>.value(
+      value: _orderViewModel,
       child: MaterialApp(
-
         debugShowCheckedModeBanner: false,
         title: 'BOM HAMBURGUER',
         theme: ThemeData(primarySwatch: Colors.red),
@@ -28,7 +40,6 @@ class MyApp extends StatelessWidget {
         routes: {
           '/cart': (_) => const CartScreen(),
           '/payment': (_) => const PaymentScreen(),
-
         },
       ),
     );

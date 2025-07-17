@@ -29,7 +29,14 @@ class CartScreen extends StatelessWidget {
                 return ListTile(
                   title: Text(item.name),
                   subtitle: Text('R\$ ${item.price.toStringAsFixed(2)}'),
+                  trailing: IconButton(
+                    icon: Icon(Icons.delete),
+                    onPressed: () async {
+                      await viewModel.removeItemFromCart(item);
+                    },
+                  ),
                 );
+
               },
             ),
           ),

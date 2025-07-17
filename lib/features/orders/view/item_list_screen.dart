@@ -4,8 +4,22 @@ import '../view_model/order_view_model.dart';
 import '../../../core/models/item_model.dart';
 import '../widgets/item_tile.dart';
 
-class ItemListScreen extends StatelessWidget {
+class ItemListScreen extends StatefulWidget {
   const ItemListScreen({super.key});
+
+  @override
+  State<ItemListScreen> createState() => _ItemListScreenState();
+}
+
+class _ItemListScreenState extends State<ItemListScreen> {
+  late Future<void> _loadCartFuture;
+
+  @override
+  void initState() {
+    super.initState();
+    final viewModel = Provider.of<OrderViewModel>(context, listen: false);
+    _loadCartFuture = viewModel.loadCart();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,19 +40,27 @@ class ItemListScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: ListView(
-        children: [
-          const Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Text('Sanduíches', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-          ),
-          ...sandwiches.map((item) => ItemTile(item: item)),
-          const Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Text('Extras', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-          ),
-          ...extras.map((item) => ItemTile(item: item)),
-        ],
+      body: FutureBuilder(
+        future: _loadCartFuture,
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(child: CircularProgressIndicator());
+          }
+          return ListView(
+            children: [
+              const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text('Sanduíches', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+              ),
+              ...sandwiches.map((item) => ItemTile(item: item)),
+              const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text('Extras', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+              ),
+              ...extras.map((item) => ItemTile(item: item)),
+            ],
+          );
+        },
       ),
     );
   }

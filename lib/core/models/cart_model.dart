@@ -1,3 +1,4 @@
+import '../../data/local/cart_database.dart';
 import 'item_model.dart';
 
 class CartModel {
@@ -51,4 +52,37 @@ class CartModel {
   }
 
   bool isEmpty() => sandwich == null && fries == null && soda == null;
+
+
+
+  Future<void> saveToDatabase() async {
+    final items = getItems();
+    await CartDatabase().saveItems(items);
+  }
+
+  Future<void> loadFromDatabase() async {
+    final items = await CartDatabase().loadItems();
+    clear();
+    for (var item in items) {
+      try {
+        addItem(item);
+      } catch (_) {
+      }
+    }
+  }
+
+  Future<void> clearFromDatabase() async {
+    clear();
+    await CartDatabase().clearCart();
+  }
+
+  void removeItem(ItemModel item) {
+    if (item.type == ItemType.sandwich && sandwich?.id == item.id) {
+      sandwich = null;
+    } else if (item.id == 'fries' && fries?.id == item.id) {
+      fries = null;
+    } else if (item.id == 'soda' && soda?.id == item.id) {
+      soda = null;
+    }
+  }
 }
