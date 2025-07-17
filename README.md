@@ -29,23 +29,32 @@ Este é um projeto de teste para desenvolvedores Flutter. A aplicação permite 
 ## Como rodar o projeto
 
 1. Clone o repositório:
-
-```bash
 git clone https://github.com/marysoarez/bom_hamburguer.git
 
 2. Acesse a pasta do projeto:
-
-```bash
 cd bom_hamburguer
 
 3. Instale as dependências:
-
-```bash
 flutter pub get
 
 4. Rode o app:
 ```bash
 flutter run
 
+## Tecnologias utilizadas
+Flutter
+Dart
+SQFlite
+
+### Requisitos Atendidos
+Listagem de Itens
+Carrinho de compras com cálculo de desconto
+Validações e mensagens de erro
+Pagamento ficticio com nome do cliente
+Persistencia local
+
+
+###Projeto feito como teste técnico
+Desenvolvido por Maryangela S. Soares da Silva
 
 
