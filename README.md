@@ -1,16 +1,51 @@
-# bom_hamburguer
+#  BOM HAMBÚRGUER - Order App (Flutter)
 
-A new Flutter project.
+Este é um projeto de teste para desenvolvedores Flutter. A aplicação permite que usuários façam pedidos de sanduíches e adicionais, calculem descontos e finalizem o pedido com um pagamento fictício.
 
-## Getting Started
+##  Funcionalidades
 
-This project is a starting point for a Flutter application.
+- Listagem de sanduíches e extras
+- Adição de um sanduíche ao carrinho
+- Exibição do carrinho com total do pedido
+- Aplicação automática de descontos:
+  - sanduiche + batata frita + refrigerante → **20%**
+  - sanduiche + refrigerante → **15%**
+  - sanduiche + batata frita → **10%**
+- Validação: não é permitido adicionar mais de um item do mesmo tipo
+- Pagamento fictício, apenas requer nome do cliente
+- Armazenamento local
 
-A few resources to get you started if this is your first Flutter project:
+##  Itens disponíveis
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Sanduíches:
+1. X-Burger – R$ 5,00  
+2. X-Egg – R$ 4,50  
+3. X-Bacon – R$ 7,00  
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Extras:
+4. Batata frita – R$ 2,00  
+5. Refrigerante – R$ 2,50  
+
+## Como rodar o projeto
+
+1. Clone o repositório:
+
+```bash
+git clone https://github.com/marysoarez/bom_hamburguer.git
+
+2. Acesse a pasta do projeto:
+
+```bash
+cd bom_hamburguer
+
+3. Instale as dependências:
+
+```bash
+flutter pub get
+
+4. Rode o app:
+```bash
+flutter run
+
+
+
